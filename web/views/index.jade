@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	h1= title
+	table(class="table table-striped ps")
+				thead
+					tr
+						th Process#
+						th Arival Time
+						th Brust Time
+						th Priority
+						th
+				tbody
+					-	var i = 0
+						while i < 4
+							tr
+								td= i++
+								td
+									input(type="text", name="ps[#{i}][arrivalTime]", class="arrivalTime")
+								td
+									input(type="text", name="ps[#{i}][brustTime]", class="brustTime")
+								td
+									input(type="text", name="ps[#{i}][priority]", class="priority")
+								td
+									input(type="button", class="x btn btn-default", value="X")
+
+	input(class="add btn btn-primary", value="Add process", type="button")
+	br
+	br
+	input(class="fcfs btn btn-default", value="FCES", type="button")
+	input(class="nsjf btn btn-default", value="Nonpreemptive  SJF", type="button")
+	input(class="priority btn btn-default", value="Priority", type="button")
+	input(class="RR btn btn-default", value="Round Robin", type="button")
+	input(type="text", class="q", placeholder="RR Quantum")
+	div(class="results")
